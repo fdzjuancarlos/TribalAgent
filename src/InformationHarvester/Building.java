@@ -1,6 +1,11 @@
 package InformationHarvester;
 
-public class Building {
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+
+public class Building implements Serializable {
 	
 	private String name;
 	private int level=0;
@@ -70,6 +75,17 @@ public class Building {
 	public void setNextLevelTime(long nextLevelTime) {
 		this.nextLevelTime = nextLevelTime;
 	}
-
+	private void writeObject(ObjectOutputStream aOutputStream)
+			throws IOException {
+			    // perform the default serialization for all non-transient, non-static
+			    // fields
+			    aOutputStream.defaultWriteObject();
+			}
+	
+	private void readObject(ObjectInputStream aInputStream)
+			throws ClassNotFoundException, IOException {
+			    // always perform the default de-serialization first
+			    aInputStream.defaultReadObject();
+			}
 
 }

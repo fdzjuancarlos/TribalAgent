@@ -1,10 +1,19 @@
 package InformationHarvester;
 
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.HashMap;
 import java.util.Map;
 
-public class TribalTown {
+import jade.util.leap.Serializable;
+
+public class TribalTown implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int wood;
 	private int stone;
 	private int iron;
@@ -104,5 +113,19 @@ public class TribalTown {
 	public Building put(String key, Building value) {
 		return buildings.put(key, value);
 	}
+	
+	private void writeObject(ObjectOutputStream aOutputStream)
+			throws IOException {
+			    // perform the default serialization for all non-transient, non-static
+			    // fields
+			    aOutputStream.defaultWriteObject();
+			}
+	
+	private void readObject(ObjectInputStream aInputStream)
+			throws ClassNotFoundException, IOException {
+			    // always perform the default de-serialization first
+			    aInputStream.defaultReadObject();
+			}
+			
 
 }
