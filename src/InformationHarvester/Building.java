@@ -17,7 +17,7 @@ public class Building implements Serializable {
 	
 	private long nextLevelTime;
 	
-	Building() {
+	public Building() {
 	}
 
 	public String getName() {
