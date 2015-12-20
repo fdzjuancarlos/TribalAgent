@@ -16,7 +16,9 @@ public class MakeBuilding extends DriverUser {
 	@Override
 	public void action() {
 		enterBuildingsMenu();
+		sleep(1);
 		upgradeBuilding(toBuild);
+		sleep(1);
 		backMainMenu();
 	}
 

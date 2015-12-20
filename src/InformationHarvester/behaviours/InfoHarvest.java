@@ -20,7 +20,8 @@ public class InfoHarvest extends DriverUser{
 	public void onStart()
 	{
 	}
-
+//.//*[@id='buildqueue']/tr[2]/td[2]/span   currentBuilding
+//.//*[@id='buildorder_1']/td[2]/span  onQueue
 	public void action(){
 
 
@@ -40,6 +41,8 @@ public class InfoHarvest extends DriverUser{
 		enterBuilding("storage");
 		enterBuilding("hide");
 		
+		checkBuildOrders();
+		
 		updateSubscribers();
 		
 		backMainMenu();
@@ -47,6 +50,22 @@ public class InfoHarvest extends DriverUser{
 
 
 
+	}
+	
+	private void checkBuildOrders(){
+		int currentConstructions = 2;
+		try{
+			driver.findElement(By.xpath(".//*[@id='buildqueue']/tr[2]/td[2]/span"));
+		}catch(Exception e){
+			currentConstructions--;
+		}
+		try{
+			driver.findElement(By.xpath(".//*[@id='buildorder_1']/td[2]/span"));
+		}catch(Exception e){
+			currentConstructions--;
+		}		
+		currentTown.setOnConstructionBuildings(currentConstructions);
+		
 	}
 	
 	public int onEnd(){

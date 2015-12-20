@@ -22,6 +22,8 @@ public class TribalTown implements Serializable {
 	private int currentFarm;
 	private int maxFarm;
 	
+	private int onConstructionBuildings;
+	
 	private Map<String,Building> buildings;
 	
 	TribalTown(){
@@ -31,7 +33,14 @@ public class TribalTown implements Serializable {
 		iron = 0;
 		maxStorage = 0;
 		currentFarm = 0; maxFarm = 0;
+		onConstructionBuildings = 0;
 	}
+	
+	public Map<String,Building> getBuildings(){
+		return buildings;
+	}
+	
+	
 	
 //	public void setBuilding(String name, Building build){
 //		buildings.put(name, build);
@@ -126,6 +135,18 @@ public class TribalTown implements Serializable {
 			    // always perform the default de-serialization first
 			    aInputStream.defaultReadObject();
 			}
+
+
+
+	public int getOnConstructionBuildings() {
+		return onConstructionBuildings;
+	}
+
+
+
+	public void setOnConstructionBuildings(int onConstructionBuildings) {
+		this.onConstructionBuildings = onConstructionBuildings;
+	}
 			
 
 }

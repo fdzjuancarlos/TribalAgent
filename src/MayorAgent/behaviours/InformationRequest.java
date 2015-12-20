@@ -27,12 +27,12 @@ public class InformationRequest extends WakerBehaviour{
         System.out.println("GONNA SUSSCRIIIBE");
 		myAgent.addBehaviour(new TownSubscription(myAgent, mensaje));
 		
-    	ACLMessage msg = new ACLMessage(ACLMessage.REQUEST);
-        msg.setProtocol(FIPANames.InteractionProtocol.FIPA_REQUEST);
-        msg.setContent("build iron");
-        id.setLocalName("bob");
-        msg.addReceiver(id);
-        myAgent.addBehaviour(new ManejadorInitiator(myAgent, msg));
+//    	ACLMessage msg = new ACLMessage(ACLMessage.REQUEST);
+//        msg.setProtocol(FIPANames.InteractionProtocol.FIPA_REQUEST);
+//        msg.setContent("build iron");
+//        id.setLocalName("bob");
+//        msg.addReceiver(id);
+//        myAgent.addBehaviour(new ManejadorInitiator(myAgent, msg));
 	}
 	
 

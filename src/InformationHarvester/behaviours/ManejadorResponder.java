@@ -28,7 +28,7 @@ public class ManejadorResponder extends AchieveREResponder
         if(contenido.equalsIgnoreCase("build")){
             TribalTown town = ((HarvesterAgent)myAgent).currentTown;
             String building = st.nextToken();
-            if (town.get(building) != null)
+            if (town.get(building) != null && town.getOnConstructionBuildings() < 2)
             {
                 ACLMessage agree = request.createReply();
                 agree.setPerformative(ACLMessage.AGREE);

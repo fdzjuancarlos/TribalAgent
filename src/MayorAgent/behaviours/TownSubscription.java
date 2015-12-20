@@ -35,7 +35,9 @@ public class TownSubscription extends SubscriptionInitiator {
     protected void handleInform(ACLMessage inform) {
         try {
 			mayor.currentTown = (TribalTown) inform.getContentObject();
-			System.out.println(mayor.currentTown.getIron() + " DE IRON ");
+			System.out.println("Mayor: Información obtenida, meditando situación...");
+			DecisionMaking decision = new DecisionMaking(myAgent, mayor.currentTown);
+			myAgent.addBehaviour(decision);
 		} catch (UnreadableException e) {
 			e.printStackTrace();
 		}

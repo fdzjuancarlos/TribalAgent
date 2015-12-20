@@ -34,7 +34,10 @@ public abstract class DriverUser extends OneShotBehaviour{
 	protected void upgradeBuilding(String name){
 		Building toUpgrade = currentTown.get(name);
 		String commonXpath = ".//*[@id='main_buildlink_" + name + "_" + String.valueOf((toUpgrade.getLevel()+1))+"']";
+		System.out.println(commonXpath);
+		//.//*[@id='main_buildlink_farm_3']
 		clickButtonFromXpath(commonXpath);
+		
 	}
 
 	protected void enterBuilding(String name){
@@ -56,7 +59,10 @@ public abstract class DriverUser extends OneShotBehaviour{
 
 	protected void clickButtonFromXpath(String text){
 		WebElement element = driver.findElement(By.xpath(text));
+		System.out.println(element.getText());
+		sleep(1);
 		element.click();
+		sleep(1);
 	}
 
 	protected int extractLevel(String text){
